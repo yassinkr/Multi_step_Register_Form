@@ -31,12 +31,32 @@ const App = () => {
   const updateField = (field, value) => {
     dispatch({ type: 'UPDATE_FIELD', field, value });
   };
-  const incstep =()=>{
-    const step =(registerstep %3)+1;
-    
-    setregisterstep(step);
-  }
-  console.log(state);
+  const incstep = () => {
+    const step = (registerstep % 3) + 1;
+  
+    if (step === 3) {
+      if (state.Email && state.name && (state.softwear || state.uiux || state.graphic)) {
+        setregisterstep((prevStep) => {
+          console.log('Setting registerstep to:', step);
+          return step;
+        });
+      } else {
+        setregisterstep((prevStep) => {
+          console.log('Setting registerstep back to 2');
+          return 2;
+        });
+      }
+    } else {
+      if (step === 2 && state.Email && state.name) {
+        setregisterstep((prevStep) => {
+          console.log('Setting registerstep to:', step);
+          return step;
+        });
+      }
+    }
+  };
+  
+ 
 
   return (
     
