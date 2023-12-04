@@ -43,7 +43,7 @@ const App = () => {
      <div>
        {registerstep === 1 && <FirstStep onClick={incstep} onChangeName={(value) => updateField('name', value)} onChangeEmail={(value) => updateField('Email', value)}/>}
        {registerstep === 2 && <SecondStep onClick={incstep}onChangeSf={(value) => updateField('softwear', value)} onChangeUIUX={(value) => updateField('uiux', value)} onChangeGD={(value) => updateField('graphic', value)}/>}
-       {registerstep === 3 &&  <ThirdStep onClick={incstep} name={state.name} email={state.Email} topics={state.interest}/>}
+       {registerstep === 3 &&  <ThirdStep onClick={incstep} name={state.name} email={state.Email} softwear={state.softwear} uiux={state.uiux} graphics={state.graphic}/>}
         </div>
       
     

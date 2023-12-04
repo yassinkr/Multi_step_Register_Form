@@ -1,40 +1,44 @@
-import React from 'react'
-import Input from './input.jsx'
-import Button from './Button.jsx'
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import Button from './Button.jsx';
 import Navigation from './navigation';
 
-import './first_step.css'
-const third_step = ({onClick,name,email,topics}) => {
+import './third_step.css'; // Assuming you have a third_step.css file
 
-  const renderTopics = Array.isArray(topics) ? (
+const ThirdStep = ({ onClick, name, email, softwear, uiux, graphics }) => {
+  const renderTopics = () => (
     <ul>
-      {topics.map((topic, index) => (
-        <li key={index}>{topic}</li>
-      ))}
+      {softwear !== '' && <li>{softwear}</li>}
+      {uiux !== '' && <li>{uiux}</li>}
+      {graphics !== '' && <li>{graphics}</li>}
     </ul>
-  ) : null;
-          
-            
+  );
+
   return (
     <div className='Appcontainer'>
-    <div className='firststepcontainer'>
+      <div className='thirdstepcontainer'>
         <form>
-        <div className='text'>Summary</div>
-        <div className='row'><label>Name:</label>{name}</div>
-        <div className='row'><label>Email:</label>{email}</div>
-        <div className='row'><label>Topics:</label>
-        {renderTopics}
-            </div>
-        <Button label={'Continue'} onClick={onClick}/>
-        
-        </form>
-    </div>
-    <Navigation step={'3'} />
-            <div className='background_circle1'></div>
-            <div className='background_circle2'></div>
+          <div className='text'>Summary</div>
+          <div className='rowthird'>
+           <div className='container'> <label className='lable'>Name:</label>
+            <p>{name}</p></div>
+            <div className='container'>
+            <label className='lable'>Email:</label>
+            <p>{email}</p></div>
           </div>
-  )
-}
+          
+          <div className='rowthird'>
+            <label className='lable'>Topics:</label>
+            {renderTopics()} {/* Call the function to render topics */}
+          </div>
+          <div className='btncontainer'>        
+             <Button label={'Continue'} onClick={onClick} /></div>
+        </form>
+      </div>
+      <Navigation step={'3'} />
+      <div className='background_circle1'></div>
+      <div className='background_circle2'></div>
+    </div>
+  );
+};
 
-export default third_step
+export default ThirdStep;
