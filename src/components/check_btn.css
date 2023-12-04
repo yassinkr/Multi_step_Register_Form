@@ -1,0 +1,44 @@
+input[type="checkbox"] {
+    display: none;
+  }
+
+  /* Style the custom radio button */
+  .custom-checkbox {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: #394150;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border:1px solid #4D5562;
+  }
+
+  /* Style the custom radio button when selected */
+   input[type="checkbox"]:checked + .custom-checkbox {
+    background-color: #652CD1;
+    border:1px solid #845EEE;
+  }
+
+  .inputcheckcontainer{
+    width: 90%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.custom-checkbox h3{
+    padding-left: 20px;
+    font-weight: lighter;
+    font-size: 16px;
+    color: #A1A1A9;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox h3 {
+    color: #E5E7EB;
+  }
